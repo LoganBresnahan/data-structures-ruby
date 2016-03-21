@@ -27,7 +27,6 @@ class Node
     end
   end
 
-#This is only switching to the very next pointer and won't go again.
   def recursive_node_pointer(this_node, node_to_find)
     return this_node if this_node.pointer == node_to_find
     this_node = this_node.pointer
