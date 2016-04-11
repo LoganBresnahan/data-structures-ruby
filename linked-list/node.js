@@ -15,11 +15,25 @@ Node.prototype.insertAfter = function(nodeToInsert) {
   this.pointer = nodeToInsert;
 }
 
-var first_node = new Node("one");
-var second_node = new Node("two");
-var inserted_node = new Node("inserted");
-first_node.new(second_node);
-first_node.insertAfter(inserted_node);
-console.log(first_node.pointer);
-console.log(inserted_node.pointer);
-console.log(second_node.pointer);
+Node.prototype.removeAfter = function() {
+  if(this.pointer === null){
+    return;
+  };
+
+  if(this.pointer.pointer){
+    this.pointer = this.pointer.pointer;
+  }else{
+    this.pointer = null;
+  };
+
+}
+
+var firstNode = new Node("one");
+var secondNode = new Node("two");
+var insertedNode = new Node("inserted");
+firstNode.new(secondNode);
+firstNode.insertAfter(insertedNode);
+firstNode.removeAfter();
+console.log(firstNode.pointer);
+// console.log(insertedNode.pointer);
+console.log(secondNode.pointer);
