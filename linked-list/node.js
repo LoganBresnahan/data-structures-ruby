@@ -16,9 +16,7 @@ Node.prototype.insertAfter = function(nodeToInsert) {
 }
 
 Node.prototype.removeAfter = function() {
-  if(this.pointer === null){
-    return;
-  };
+  if(this.pointer === null) return;
 
   if(this.pointer.pointer){
     this.pointer = this.pointer.pointer;
@@ -26,6 +24,28 @@ Node.prototype.removeAfter = function() {
     this.pointer = null;
   };
 
+}
+
+Node.prototype.recursiveNodePointer = function(thisNode, nodeToFind) {
+  if(thisNode.pointer == nodeToFind){ return thisNode; };
+  thisNode = thisNode.pointer;
+  recursiveNodePointer(thisNode, nodeToFind);
+}
+
+Node.prototype.recursiveNodeIndex = function(thisNode, index) {
+  thisNode.index = this.count;
+  if(thisNode.index == index){ return thisNode; };
+  thisNode == thisNode.pointer;
+  this.count += 1;
+  recursiveNodeIndex(thisNode, index);
+}
+
+Node.prototype.recursiveNodeSize = function(thisNode){
+  thisNode.index = this.count;
+  if(thisNode.pointer === null){ return thisNode.index+1; };
+  thisNode = thisNode.pointer;
+  this.count += 1;
+  recursiveNodeSize(thisNode);
 }
 
 var firstNode = new Node("one");
