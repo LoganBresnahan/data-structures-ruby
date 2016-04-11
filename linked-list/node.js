@@ -10,10 +10,16 @@ Node.prototype.new = function(element) {
   this.pointer.pointer = null;
 }
 
+Node.prototype.insertAfter = function(nodeToInsert) {
+  nodeToInsert.pointer = this.pointer;
+  this.pointer = nodeToInsert;
+}
+
 var first_node = new Node("one");
 var second_node = new Node("two");
+var inserted_node = new Node("inserted");
 first_node.new(second_node);
-console.log(first_node.value);
+first_node.insertAfter(inserted_node);
 console.log(first_node.pointer);
-console.log(second_node.value);
+console.log(inserted_node.pointer);
 console.log(second_node.pointer);
