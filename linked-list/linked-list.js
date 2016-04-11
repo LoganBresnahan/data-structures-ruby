@@ -27,3 +27,31 @@ LinkedList.prototype.insertLast = function(nodeObject){
     this.backNode = nodeObject;
   };
 }
+
+LinkedList.prototype.removeLast = function(){
+  if(this.frontNode.pointer === null){ return this.frontNode = null; };
+  this.backNode = this.frontNode.recursiveNodePointer(this.frontNode, nodeToFind);
+  this.backNode = null;
+  return this.backNode;
+}
+
+LinkedList.prototype.get = function(index){
+  return this.frontNode.recursiveNodeIndex(this.frontNode, index);
+}
+
+LinkedList.prototype.set = function(index, element){
+  var node = this.frontNode.recursiveNodeIndex(this.frontNode, index);
+  node.value = element;
+}
+
+LinkedList.prototype.insert = function(index, element){
+  var behindNode = this.get(index-1);
+  var infrontNode = this.get(index);
+  var insertedNode = Node.new(element);
+  insertedNode.pointer = infrontNode;
+  behindNode.pointer = insertedNode;
+}
+
+LinkedList.prototype.size = function(){
+  this.frontNode.recursiveNodeSize(this.frontNode);
+}
