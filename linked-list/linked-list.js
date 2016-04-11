@@ -17,3 +17,13 @@ LinkedList.prototype.removeFirst = function(){
     this.frontNode = null;
   };
 }
+
+LinkedList.prototype.insertLast = function(nodeObject){
+  if(this.frontNode === null){
+    this.frontNode = nodeObject;
+    this.backNode = this.frontNode;
+  }else{
+    this.backNode.pointer = nodeObject;
+    this.backNode = nodeObject;
+  };
+}
