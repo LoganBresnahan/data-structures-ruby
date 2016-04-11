@@ -10,7 +10,10 @@ Node.prototype.new = function(element) {
   this.pointer.pointer = null;
 }
 
-var node = new Node(1);
-console.log(node)
-var test = node.new(2);
-console.log(test);
+var first_node = new Node("one");
+var second_node = new Node("two");
+first_node.new(second_node);
+console.log(first_node.value);
+console.log(first_node.pointer);
+console.log(second_node.value);
+console.log(second_node.pointer);
