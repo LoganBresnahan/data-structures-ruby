@@ -18,3 +18,10 @@ FixedArray.prototype.set = function(index, element) {
     return this.array[index] = element;
   }
 }
+
+var arr = new FixedArray(4);
+console.log(arr.array);
+arr.set(0, 'this');
+console.log(arr.array);
+var value = arr.get(0);
+console.log(value);
